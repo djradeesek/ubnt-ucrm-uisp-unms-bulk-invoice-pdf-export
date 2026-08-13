@@ -76,8 +76,8 @@ echo '<html lang="en"><head><title>Export</title><style>
 
 echo '<h1>Bulk Invoice PDF Export</h1>';
 
-// Relative link to settings
-echo '<a href="../../system/plugins/djradeesek__ubnt-ucrm-uisp-unms-bulk-invoice-pdf-export/configure" class="btn btn-secondary" target="_parent">⚙️ Go to Period & API Key Settings</a>';
+// FIX: Absolute path from CRM root ensures 100% functionality inside any iframe zanoření
+echo '<a href="/crm/system/plugins/djradeesek__ubnt-ucrm-uisp-unms-bulk-invoice-pdf-export/configure" class="btn btn-secondary" target="_parent">⚙️ Go to Period & API Key Settings</a>';
 
 if (!$dateFrom || !$dateTo || !$appKey) {
     echo '<div style="background:#fff3cd; color:#856404; padding:15px; border-radius:4px; margin-bottom:20px;">';
@@ -184,7 +184,7 @@ if (isset($_POST['run_export']) && $dateFrom && $dateTo && $appKey) {
     echo '<br><a href="' . $cleanDownloadUrl . '" class="btn" style="background:#28a745;">⬇️ Download ZIP Export Now</a><br><br>';
 }
 
-// 5. LIST GENERATED FILES ON DISK
+// 5. LIST GENERATED FILES ON DISK (Placed at the end to instantly show newly created files)
 if (is_dir(__DIR__ . '/data')) {
     $files = glob(__DIR__ . '/data/*.zip');
     if (!empty($files)) {
@@ -204,7 +204,7 @@ if (is_dir(__DIR__ . '/data')) {
     }
 }
 
-echo '</div>';
+echo '</div>'; // End of .content
 
 // 6. BRAND FOOTER
 echo '<div class="footer">';
