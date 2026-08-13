@@ -1,0 +1,47 @@
+{
+  "version": "1",
+  "information": {
+    "name": "djradeesek__ubnt-ucrm-uisp-unms-bulk-invoice-pdf-export",
+    "displayName": "Bulk Invoice PDF Export to ZIP",
+    "description": "Export individual invoice PDFs into a ZIP archive for a selected date range directly from your Billing menu. Compatible with UCRM / UISP / UNMS.",
+    "url": "https://github.com",
+    "version": "1.2.0",
+    "ucrmVersionCompliancy": {
+      "min": "2.14.0",
+      "max": null
+    },
+    "unmsVersionCompliancy": {
+      "min": "1.0.0",
+      "max": null
+    },
+    "author": "BroadCaster, s.r.o."
+  },
+  "configuration": [
+    {
+      "key": "api_key",
+      "label": "UCRM API App Key (System -> Security -> App keys)",
+      "type": "text",
+      "required": true
+    },
+    {
+      "key": "date_from",
+      "label": "Date From (Format: YYYY-MM-DD, e.g., 2025-07-16)",
+      "type": "text",
+      "required": true
+    },
+    {
+      "key": "date_to",
+      "label": "Date To (Format: YYYY-MM-DD, e.g., 2025-12-31)",
+      "type": "text",
+      "required": true
+    }
+  ],
+  "menu": [
+    {
+      "type": "admin",
+      "key": "billing",
+      "label": "Bulk Invoice PDF Export",
+      "target": "iframe"
+    }
+  ]
+}
